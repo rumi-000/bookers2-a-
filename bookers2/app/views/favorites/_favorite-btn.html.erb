@@ -1,6 +1,6 @@
 <% if book.favorited_by?(user_id: current_user.id) %>
-  　<%= link_to book_favorites_path(book), method: :delete, remote: true, data: {"turbolinks" => false} do %>♥<%= book.favorites.count %> いいね<% end %>
+    <%= link_to book_favorites_path(book), method: :delete, remote: true do %>♥<%= book.favorites.count %> いいね<% end %>
 <% else %>
-  　<%= link_to book_favorites_path(book), method: :post, remote: true, data: {"turbolinks" => false} do %>♡<%= book.favorites.count %> いいね<% end %>
+  　  <%= link_to book_favorites_path(book), method: :post, remote: true do %>♡<%= book.favorites.count %> いいね<% end %>
 <% end %>
 
