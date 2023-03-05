@@ -1,0 +1,35 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+     
+    <h2>User info</h2>
+    <%= render 'layouts/errors', obj: current_user %>
+    <%= form_with model: @user, local:true do |f| %>
+    
+    
+    <div class="form-group">
+     <label for="inputName">Name</label>
+     <%#= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前" %>
+     <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前" , class: "form-control name" %>
+    </div>
+    
+    <div class="form-group">
+     <label for="inputImage">Image</label>
+     <%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %>
+    </div>
+    
+    <div class="form-group">
+     <label for="inputIntroduction">Introduction</label>
+     <%= f.text_area :introduction, class: "form-control introduction" %>
+    </div>
+    
+    <div class="form-group">
+     <%= f.submit "Update User", class: 'btn btn-secondary' %>
+    </div>
+    
+    <% end %>
+    
+    </div>
+  </div>
+</div>
+
