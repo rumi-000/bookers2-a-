@@ -48,29 +48,11 @@
         <% end %>
         </tbody>
        </table>
-    </div>
-      <div>
-      <td><%= form_with model: [@Book, @book_comment] do |f| %>
-          <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %></td>
-      <td><%= f.submit "送信する" %><% end %></td>
+        <td class="new-comment">
+        <%= render "book_comments/form", book: @Book, book_comment: @book_comment %></td>
       </div>
+      
   </div>
  </div>
 </div>
 
-
-<%
-=begin
-%>
-
-         　  <% if @Book.favorited_by?(user_id: current_user.id) %>
-　　　　    <td><%= link_to book_favorites_path(@Book), method: :delete do %>♥<%= @Book.favorites.count %>
-　　　　　  <% end %></td>
-　　　　    <% else %>
-　　　　    <td><%= link_to book_favorites_path(@Book), method: :post do %>♡<%= @Book.favorites.count %>
-            <% end %></td>
-            <% end %>
-            
-            <%
-=end
-%>
