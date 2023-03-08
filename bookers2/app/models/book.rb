@@ -6,6 +6,8 @@ class Book < ApplicationRecord
   # 追加
   has_many :favorited_users, through: :favorites, source: :user
 
+  has_many :read_counts, dependent: :destroy
+
 #投稿画像に付けられた「いいね」に、自分（ログインしているユーザ）が含まれているかをfavorited_by?
 #user_idはいいねしたユーザのID
   def favorited_by?(user_id:)

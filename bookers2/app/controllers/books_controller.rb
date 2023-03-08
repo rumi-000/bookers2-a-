@@ -4,13 +4,9 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @user=@book.user
     @book_comment = BookComment.new
+    read_count = ReadCount.new(book_id: @book.id, user_id: current_user.id)
+    read_count.save
   end
-
-#def index
-  #@books = Book.all
-  #@book= Book.new
-  #@user = current_user
-#end
 
 def index
     @books = Book.all
@@ -37,12 +33,6 @@ def index
     end
   end
 
-
-
-  #def edit
-    #@book = Book.find(params[:id])
-  #
-  
   def edit
  @book = Book.find(params[:id])
  user_id =@book.user.id.to_i
